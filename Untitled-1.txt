@@ -1,0 +1,6 @@
+Instruções para o desafio:
+    Criar a tela de Login e deixar ela como 1ª tela do App.js;
+    Objetos da tela de login: 2 campos (login/senha) e botão "Entrar";
+    Criar navegação entre as telas: Home, Details e Profile;
+    Na tela de Home retirar a opção "Goback" (final do pdf);
+    Verificar se o usuário digitou o login e a senha corretamente;

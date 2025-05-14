@@ -1,17 +1,19 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Homescreen from './src/screens/HomeScreen';
-import DetailsScreen from './src/screens/DetailsScreen';
-import ProfileScreen from './src/screens/ProfileScreen';
+import HomeScreen from './screens/HomeScreen'
+import DetailsScreen from './screens/DetailsScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import LoginScreen from './screens/LoginScreen';
 
 const stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="Home">
-        <stack.Screen name="Home" component={Homescreen} />
+      <stack.Navigator initialRouteName="Login">
+        <stack.Screen name="Login" component={LoginScreen} />
+        <stack.Screen name="Home" component={HomeScreen} />
         <stack.Screen name="Details" component={DetailsScreen} />
         <stack.Screen name="Profile" component={ProfileScreen} />
       </stack.Navigator>
