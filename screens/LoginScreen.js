@@ -1,4 +1,3 @@
-import { useTheme } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, Button, TextInput, Dimensions, StyleSheet, ImageBackground } from 'react-native';
 import { useState } from 'react';
@@ -22,15 +21,17 @@ export default function LoginScreen ({navigation}) {
         <ImageBackground source={require('../imgs/ghibli.png')} style={styles.image}>
         <View style={styles.container }>
             <Text style={styles.title} >Login de usuário</Text>
-            <View>
+            <View style={styles.textcontainer}>
                 <Text >Login</Text>
                 <TextInput style={styles.input} placeholder="Login padrão: Aluno" keyboardType='text' value={login} onChangeText={setlogin}/>
             </View>
-            <View>
+            <View style={styles.textcontainer}>
                 <Text >Senha</Text>
                 <TextInput style={styles.input} placeholder="Senha padrão: 1234" keyboardType='numeric' value={senha} onChangeText={setsenha}/>
             </View>
+            <View style={styles.textcontainer}>
             <Button title="Entrar" onPress={verificarlogin}/>
+            </View>
         </View>
         </ImageBackground>
     );
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        width: windowWidht * 0.5,
     },
 
     title: {
@@ -70,6 +72,11 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         width: "100%",
         height: '100%',
+        alignItems: 'center',
+    },
+
+    textcontainer: {
+        width: "60%",
     },
 
     });
