@@ -6,11 +6,11 @@ const windowWidht = Dimensions.get('window').width;
 
 export default function LoginScreen ({navigation}) {
 
-    let [login,setlogin] = useState(null);
-    let [senha,setsenha] = useState(null);
+    let [login,setlogin] = useState('Chicken');
+    let [senha,setsenha] = useState('Jockey');
 
     const verificarlogin = () => {
-        if((login=="Aluno")&&(senha=="1234")){
+        if((login=="Chicken")&&(senha=="Jockey")){
             navigation.navigate('Home');
         }else{
             alert("Login ou senha errada! Tente ler o texto que aparece quando os campos estão vazios");
@@ -18,16 +18,16 @@ export default function LoginScreen ({navigation}) {
     };
 
     return (
-        <ImageBackground source={require('../imgs/ghibli.png')} style={styles.image}>
+        <ImageBackground source={require('../imgs/I.png')} style={styles.image}>
         <View style={styles.container }>
-            <Text style={styles.title} >Login de usuário</Text>
+            <Text style={styles.title} >I</Text>
             <View style={styles.textcontainer}>
                 <Text >Login</Text>
-                <TextInput style={styles.input} placeholder="Login padrão: Aluno" keyboardType='text' value={login} onChangeText={setlogin}/>
+                <TextInput style={styles.input} keyboardType='text' value={login} onChangeText={setlogin}/>
             </View>
             <View style={styles.textcontainer}>
                 <Text >Senha</Text>
-                <TextInput style={styles.input} placeholder="Senha padrão: 1234" keyboardType='numeric' value={senha} onChangeText={setsenha}/>
+                <TextInput style={styles.input} keyboardType='numeric' value={senha} onChangeText={setsenha}/>
             </View>
             <View style={styles.textcontainer}>
             <Button title="Entrar" onPress={verificarlogin}/>
@@ -46,8 +46,9 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: 24,
+        fontSize: 50,
         marginBottom: 20,
+        color: 'white',
     },
 
     buttonContainer: {
