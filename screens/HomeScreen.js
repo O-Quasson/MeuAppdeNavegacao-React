@@ -1,9 +1,24 @@
 import React from "react";
 import { View, Text, Button, StyleSheet, Dimensions } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const windowWidht = Dimensions.get('window').width;
 
 export default function Homescreen ({ navigation }) {
+
+    const deslogar = async () => {
+        //ok, aparentemente as variáveis assincronas passam entre páginas sem a necessidade de passar elas como parâmetros em outras páginas, o que é bem conveniente, uma mão na roda, realmente
+        //e eu deveria parar de falar sozinho
+        //concordo
+        const logado = await AsyncStorage.getItem('logado');
+
+        try {
+            AsyncStorage.removeItem('logado');
+            navigation.navigate('Login');
+        } catch (error) {
+            console.log("erro em: " + error);
+        };
+    };
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Home screen</Text>
@@ -24,7 +39,7 @@ export default function Homescreen ({ navigation }) {
             <View style={styles.buttonContainer}>
                 <Button
                     title="Exit"
-                    onPress={() => navigation.navigate('Login')}
+                    onPress={() => deslogar()}
             />
             </View>
         </View>
