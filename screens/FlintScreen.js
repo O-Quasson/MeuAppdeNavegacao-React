@@ -3,11 +3,16 @@ import { View, Text, Button, StyleSheet, Dimensions, Image, TouchableOpacity, Im
 
 const windowWidht = Dimensions.get('window').width;
 
-export default function DetailsScreen({ navigation }) {
+export default function FlintScreen({ navigation }) {
     return (
-        <ImageBackground source={require('../imgs/galinha.webp')} style={styles.background}>
+        <ImageBackground source={require('../imgs/and.png')} style={styles.background}>
         <View style={styles.container}>
-            <Image source={require('../imgs/jockey.jpg')} alt="THIS IS NOT STEVEN UNIVERSE, BLUD 🙏😭" style={styles.image}/>
+        
+                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Nether')}>
+                    <Image source={require('../imgs/netherportal.jpg')} title='Ender' style={styles.portal}/>
+                </TouchableOpacity>
+
+            <Image source={require('../imgs/steel.avif')} alt="WE ARE GOING TO THE NETHER WITH THIS ONE 🔥🔥🗣️🗣️" style={styles.image}/>
             
             <View style={styles.buttonContainer}>
                 <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Profile')}>
@@ -16,8 +21,8 @@ export default function DetailsScreen({ navigation }) {
             </View>
 
             <View style={styles.buttonContainer}>
-                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Flint')}>
-                    <Image source={require('../imgs/flint.jpg')} title='CHICKEN' style={styles.images}/>
+            <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Details')}>
+                    <Image source={require('../imgs/chicken.jpg')} title='CHICKEN' style={styles.images}/>
                 </TouchableOpacity>
             </View>
 
@@ -75,5 +80,10 @@ const styles = StyleSheet.create({
         width: "100%",
         height: '100%',
         alignItems: 'center',
+    },
+
+    portal: {
+        height: 150,
+        width: 150,
     },
 });

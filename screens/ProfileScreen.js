@@ -8,14 +8,28 @@ export default function ProfileScreen ({navigation}) {
         <ImageBackground source={require('../imgs/barratp.png')} style={styles.background}>
         <View style={styles.container}>
             <Image source={require('../imgs/pearl.jpg')} alt="THIS IS NOT STEVEN UNIVERSE, BLUD 🙏😭" style={styles.image}/>
-            <View style={styles.buttonContainer} >
-                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Login')}>
-                    <Image source={require('../imgs/whoareyou.png')} title='Who are you?' style={styles.images}/>
-                </TouchableOpacity>
-            </View>
+            
             <View style={styles.buttonContainer}>
             <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Details')}>
                     <Image source={require('../imgs/chicken.jpg')} title='CHICKEN' style={styles.images}/>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Bucket')}>
+                    <Image source={require('../imgs/coming.png')} title='CHICKEN' style={styles.images}/>
+                </TouchableOpacity>
+            </View>
+            
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Flint')}>
+                    <Image source={require('../imgs/flint.jpg')} title='CHICKEN' style={styles.images}/>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.buttonContainer} >
+                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Login')}>
+                    <Image source={require('../imgs/whoareyou.png')} title='Who are you?' style={styles.images}/>
                 </TouchableOpacity>
             </View>
         </View>

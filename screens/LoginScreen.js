@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, Button, TextInput, Dimensions, StyleSheet, ImageBackground } from 'react-native';
 import { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const windowWidht = Dimensions.get('window').width;
 
@@ -8,14 +9,49 @@ export default function LoginScreen ({navigation}) {
 
     let [login,setlogin] = useState('Chicken');
     let [senha,setsenha] = useState('Jockey');
+    let [logado,setlogado] = useState(false);
+
+    const salvarlogin = async (logado) => {
+        try {
+            //setItem(chave, "valor") (ambos tem que ser uma string)
+            //ele criauma variável que funciona de forma asincrona
+            //campo chave é o nome dessa variável
+            //campo valor é auto explicatório
+            //essa variável n interage com as variáveis declaradas dentro do códio (tipo login ou senha ali em cima)
+
+            await AsyncStorage.setItem('logado',JSON.stringify(true));
+            //isso vai fazer a mesma coisa que um setlogado=true
+        } catch (error) {
+            console.log("Seu erro é : " + error);
+        };
+    };
+
+    const carregarlogin = async (logado) => {
+        try {
+            const loginsalvo = await AsyncStorage.getItem('logado');
+
+            if(loginsalvo=='true'){
+                navigation.navigate("Home");
+            }
+
+        } catch (error) {
+            console.log("Tu não consegue fazer isso não dar erro? " + error);
+        };
+    };
+
 
     const verificarlogin = () => {
         if((login=="Chicken")&&(senha=="Jockey")){
-            navigation.navigate('Home');
+            salvarlogin(logado);
+            navigation.navigate("Home");
         }else{
             alert("Login ou senha errada! Tente ler o texto que aparece quando os campos estão vazios");
         };
     };
+
+    useEffect(() => {
+        carregarlogin(logado);
+    });
 
     return (
         <ImageBackground source={require('../imgs/I.png')} style={styles.image}>

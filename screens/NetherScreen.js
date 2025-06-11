@@ -3,33 +3,13 @@ import { View, Text, Button, StyleSheet, Dimensions, Image, TouchableOpacity, Im
 
 const windowWidht = Dimensions.get('window').width;
 
-export default function DetailsScreen({ navigation }) {
+export default function NetherScreen({ navigation }) {
     return (
-        <ImageBackground source={require('../imgs/galinha.webp')} style={styles.background}>
+        <ImageBackground source={require('../imgs/nether.jpg')} style={styles.background}>
         <View style={styles.container}>
-            <Image source={require('../imgs/jockey.jpg')} alt="THIS IS NOT STEVEN UNIVERSE, BLUD 🙏😭" style={styles.image}/>
-            
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Profile')}>
-                    <Image source={require('../imgs/ender.jpg')} title='Ender' style={styles.images}/>
-                </TouchableOpacity>
-            </View>
-
             <View style={styles.buttonContainer}>
                 <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Flint')}>
                     <Image source={require('../imgs/flint.jpg')} title='CHICKEN' style={styles.images}/>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Bucket')}>
-                    <Image source={require('../imgs/coming.png')} title='CHICKEN' style={styles.images}/>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Login')}>
-                    <Image source={require('../imgs/whoareyou.png')} title='Who are you?' style={styles.images}/>
                 </TouchableOpacity>
             </View>
         </View>

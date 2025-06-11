@@ -3,11 +3,11 @@ import { View, Text, Button, StyleSheet, Dimensions, Image, TouchableOpacity, Im
 
 const windowWidht = Dimensions.get('window').width;
 
-export default function DetailsScreen({ navigation }) {
+export default function BucketScreen({ navigation }) {
     return (
-        <ImageBackground source={require('../imgs/galinha.webp')} style={styles.background}>
+        <ImageBackground source={require('../imgs/bucket.jpg')} style={styles.background}>
         <View style={styles.container}>
-            <Image source={require('../imgs/jockey.jpg')} alt="THIS IS NOT STEVEN UNIVERSE, BLUD 🙏😭" style={styles.image}/>
+            <Image source={require('../imgs/water.jpg')} alt="RELEASE 🔥🔥🗣️🗣️" style={styles.image}/>
             
             <View style={styles.buttonContainer}>
                 <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Profile')}>
@@ -16,14 +16,14 @@ export default function DetailsScreen({ navigation }) {
             </View>
 
             <View style={styles.buttonContainer}>
-                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Flint')}>
-                    <Image source={require('../imgs/flint.jpg')} title='CHICKEN' style={styles.images}/>
+            <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Details')}>
+                    <Image source={require('../imgs/chicken.jpg')} title='CHICKEN' style={styles.images}/>
                 </TouchableOpacity>
             </View>
-
+            
             <View style={styles.buttonContainer}>
-                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Bucket')}>
-                    <Image source={require('../imgs/coming.png')} title='CHICKEN' style={styles.images}/>
+                <TouchableOpacity title="Ender" onPress={() => navigation.navigate('Flint')}>
+                    <Image source={require('../imgs/flint.jpg')} title='FLINT AND STEEL' style={styles.images}/>
                 </TouchableOpacity>
             </View>
 
