@@ -86,4 +86,8 @@ const styles = StyleSheet.create({
         height: 150,
         width: 150,
     },
+
+    paint: {
+        backgroundColor: '#ff0000',
+    }
 });

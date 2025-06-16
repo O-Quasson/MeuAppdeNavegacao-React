@@ -7,8 +7,8 @@ const windowWidht = Dimensions.get('window').width;
 
 export default function LoginScreen ({navigation}) {
 
-    let [login,setlogin] = useState('Chicken');
-    let [senha,setsenha] = useState('Jockey');
+    let [login,setlogin] = useState(null);
+    let [senha,setsenha] = useState(null);
     let [logado,setlogado] = useState(false);
 
     const salvarlogin = async (logado) => {
@@ -41,7 +41,7 @@ export default function LoginScreen ({navigation}) {
 
 
     const verificarlogin = () => {
-        if((login=="Chicken")&&(senha=="Jockey")){
+        if((login.trim()=="Chicken")&&(senha.trim()=="Jockey")){
             salvarlogin(logado);
             navigation.navigate("Home");
         }else{
@@ -57,16 +57,18 @@ export default function LoginScreen ({navigation}) {
         <ImageBackground source={require('../imgs/I.png')} style={styles.image}>
         <View style={styles.container }>
             <Text style={styles.title} >I</Text>
-            <View style={styles.textcontainer}>
-                <Text >Login</Text>
-                <TextInput style={styles.input} keyboardType='text' value={login} onChangeText={setlogin}/>
-            </View>
-            <View style={styles.textcontainer}>
-                <Text >Senha</Text>
-                <TextInput style={styles.input} keyboardType='numeric' value={senha} onChangeText={setsenha}/>
-            </View>
-            <View style={styles.textcontainer}>
-            <Button title="Entrar" onPress={verificarlogin}/>
+            <View style={styles.paint}>
+                <View style={styles.textcontainer}>
+                    <Text >Login</Text>
+                    <TextInput style={styles.input} keyboardType='text' value={login} onChangeText={setlogin} placeholder="Login padrão: Chicken"/>
+                </View>
+                <View style={styles.textcontainer}>
+                    <Text >Senha</Text>
+                    <TextInput style={styles.input} keyboardType='text' value={senha} onChangeText={setsenha} placeholder="Senha padrão: Jockey"/>
+                </View>
+                <View style={styles.textcontainer}>
+                    <Button title="Entrar" onPress={verificarlogin}/>
+                </View>
             </View>
         </View>
         </ImageBackground>
@@ -114,6 +116,15 @@ const styles = StyleSheet.create({
 
     textcontainer: {
         width: "60%",
+    },
+
+    paint: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: windowWidht * 0.5,
+        display: 'fit-content',
+        backgroundColor: '#d9faf7',
+        paddingVertical: 20,
     },
 
     });
